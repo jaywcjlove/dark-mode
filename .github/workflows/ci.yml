@@ -74,6 +74,8 @@ jobs:
           npm i @wcj/dark-mode@${{steps.create_tag.outputs.versionNumber}}
           ```
 
+    - run: rm -rf dist/index.html
+    - run: rm -rf dist/main.js
     - name: 📦 @wcj/dark-mode publish to NPM
       uses: JS-DevTools/npm-publish@v1
       with:
