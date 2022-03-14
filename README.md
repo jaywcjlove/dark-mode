@@ -13,6 +13,8 @@ npm install --save @wcj/dark-mode
 
 Or, alternatively, use a `<script defer>` tag (served from unpkg's CDN):
 
+CDN: [UNPKG](https://unpkg.com/@wcj/dark-mode/dist/) | [jsDelivr](https://cdn.jsdelivr.net/npm/@wcj/dark-mode/) | [Githack](https://raw.githack.com/jaywcjlove/dark-mode/gh-pages/dark-mode.min.js) | [Statically](https://cdn.statically.io/gh/jaywcjlove/dark-mode/gh-pages/dark-mode.min.js)
+
 ```html
 <script src="https://unpkg.com/@wcj/dark-mode" defer></script>
 ```
