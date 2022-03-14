@@ -1,6 +1,6 @@
 {
   "name": "@wcj/dark-mode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web Component that toggles dark mode 🌒",
   "main": "./main.js",
   "browser": "./dist/dark-mode.min.js",
@@ -9,7 +9,7 @@
   "unpkg": "./dist/dark-mode.min.js",
   "scripts": {
     "clean": "shx rm -rf ./dist && mkdir dist",
-    "build": "npm run clean && npx terser ./main.js --toplevel --mangle-props regex=\\\"^_\\\" --comments /@license/ --ecma=8 -o ./dist/dark-mode.js"
+    "build": "npm run clean && npx terser ./main.js --toplevel --mangle-props regex=\\\"^_\\\" --comments /@license/ --ecma=8 -o ./dist/dark-mode.min.js"
   },
   "author": "jaywcjlove",
   "license": "MIT",
