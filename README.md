@@ -8,7 +8,7 @@ A custom element that allows you to easily put a Dark Mode 🌒 toggle. so you c
 Install from npm:
 
 ```bash
-npm install --save dark-mode-toggle
+npm install --save @wcj/dark-mode
 ```
 
 Or, alternatively, use a `<script defer>` tag (served from unpkg's CDN):
