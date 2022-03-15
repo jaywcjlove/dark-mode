@@ -23,7 +23,6 @@ class DarkMode extends HTMLElement {
   }
   constructor() {
     super();
-    installStringReflection(this, 'mode');
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       this.mode = 'dark';
       this._changeThemeTag();
@@ -51,6 +50,9 @@ class DarkMode extends HTMLElement {
     // 之后，可停止观察
     // observer.disconnect();
     this._initializeDOM();
+  }
+  connectedCallback() {
+    installStringReflection(this, 'mode');
   }
   _changeThemeTag() {
     doc.body.setAttribute('data-color-mode', this.mode);
