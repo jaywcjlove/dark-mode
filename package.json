@@ -19,6 +19,7 @@
     "url": "git+https://github.com/jaywcjlove/dark-mode.git"
   },
   "files": [
+    "main.d.ts",
     "main.js",
     "dist"
   ],
