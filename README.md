@@ -31,6 +31,7 @@ There are two ways how you can use `<dark-mode>`:
 
 ```html
 <dark-mode></dark-mode>
+<dark-mode light="Dart" dark="Light"></dark-mode>
 <dark-mode dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"></dark-mode>
 ```
 
