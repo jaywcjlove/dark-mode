@@ -23,14 +23,6 @@ class DarkMode extends HTMLElement {
   }
   constructor() {
     super();
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      this.mode = 'dark';
-      this._changeThemeTag();
-    }
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      this.mode = 'light';
-      this._changeThemeTag();
-    }
     window.matchMedia('(prefers-color-scheme: light)').onchange = (event) => {
       this.mode = event.matches ? "light" : "dark";
       this._changeThemeTag();
@@ -39,7 +31,7 @@ class DarkMode extends HTMLElement {
       this.mode = event.matches ? "dark" : "light";
       this._changeThemeTag();
     }
-
+    
     const observer = new MutationObserver((mutationsList, observer) => {
       this.mode = document.body.dataset.colorMode;
       this._changeContent();
@@ -53,6 +45,14 @@ class DarkMode extends HTMLElement {
   }
   connectedCallback() {
     installStringReflection(this, 'mode');
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      this.mode = 'dark';
+      this._changeThemeTag();
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      this.mode = 'light';
+      this._changeThemeTag();
+    }
   }
   _changeThemeTag() {
     doc.body.setAttribute('data-color-mode', this.mode);
@@ -63,20 +63,19 @@ class DarkMode extends HTMLElement {
   }
   _initializeDOM() {
     var shadow = this.attachShadow({ mode: 'open' });
-    var label = doc.createElement('span');
-    label.setAttribute('class', 'wrapper');
-    label.onclick = () => {
+    this.label = doc.createElement('span');
+    this.label.setAttribute('class', 'wrapper');
+    this.label.onclick = () => {
       this.mode = this.mode === 'light' ? 'dark' : 'light';
       this._changeThemeTag();
       this._changeContent();
     }
-    shadow.appendChild(label);
-
+    shadow.appendChild(this.label);
     this.icon = doc.createElement('span');
-    label.appendChild(this.icon);
+    this.label.appendChild(this.icon);
 
     this.text = doc.createElement('span');
-    label.appendChild(this.text);
+    this.label.appendChild(this.text);
     this._changeContent();
 
     const textContent = `

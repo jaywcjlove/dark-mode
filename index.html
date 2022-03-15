@@ -14,11 +14,11 @@
   </style>
 </head>
 <body>
-  <dark-mode></dark-mode>
+  <dark-mode onclick="console.log('Hello')"></dark-mode>
   <dark-mode onchange="handleDarkMode" dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"></dark-mode>
   <script>
     document.addEventListener('colorschemechange', (e) => {
-      console.log(`Color scheme changed to ${e.detail.colorScheme}.`);
+      console.log(`Color scheme changed to "${e.detail.colorScheme}".`);
     });
   </script>
   <br /><br />
