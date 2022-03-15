@@ -7,6 +7,7 @@
   "module": "./dist/dark-mode.min.js",
   "exports": "./dist/dark-mode.min.js",
   "unpkg": "./dist/dark-mode.min.js",
+  "types": "./main.d.ts",
   "scripts": {
     "clean": "shx rm -rf ./dist && mkdir dist",
     "build": "npm run clean && npx terser ./main.js --toplevel --mangle-props regex=\\\"^_\\\" --comments /@license/ --ecma=8 -o ./dist/dark-mode.min.js"
