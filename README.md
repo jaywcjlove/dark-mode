@@ -75,18 +75,82 @@ Properties can be set directly on the custom element at creation time, or dynami
 
 ```typescript
 export type ColorScheme = 'light' | 'dark';
-export type ColorSchemeChangeEvent = CustomEvent<{ colorScheme: ColorScheme }>;
 export class DarkMode extends HTMLElement {
   mode?: ColorScheme;
+  /**
+   * Defaults to not remember the last choice.
+   * If present remembers the last selected mode (`dark` or `light`),
+   * which allows the user to permanently override their usual preferred color scheme.
+   */
+  permanent?: boolean;
+  /**
+   * Any string value that represents the label for the "dark" mode.
+   */
   dark?: string;
+  /**
+   * Any string value that represents the label for the "light" mode.
+   */
   light?: string;
   style?: React.CSSProperties;
 }
 ```
 
+## Complete Example
+
+Interacting with the custom element:
+
+```js
+const darkMode = document.querySelector('dark-mode');
+
+// Set the mode to dark
+darkMode.mode = 'dark';
+// Set the mode to light
+darkMode.mode = 'light';
+
+// Set the light label to "off"
+darkMode.light = 'off';
+// Set the dark label to "on"
+darkMode.dark = 'on';
+
+// Set a "remember the last selected mode" label
+darkMode.permanent = 'on';
+
+// Remember the user's last color scheme choice
+darkModeToggle.setAttribute('permanent', false);
+// Forget the user's last color scheme choice
+darkModeToggle.removeAttribute('permanent');
+```
+
+Reacting on color scheme changes:
+
+```js
+/* On the page */
+document.addEventListener('colorschemechange', (e) => {
+  console.log(`Color scheme changed to ${e.detail.colorScheme}.`);
+});
+```
+
+Reacting on "remember the last selected mode" functionality changes:
+
+```js
+/* On the page */
+document.addEventListener('permanentcolorscheme', (e) => {
+  console.log(`${e.detail.permanent ? 'R' : 'Not r'}emembering the last selected mode.`);
+});
+```
+
 ## Events
 
 - `colorschemechange`: Fired when the color scheme gets changed.
+- `permanentcolorscheme`: Fired when the color scheme should be permanently remembered or not.
+
+## Alternatives
+
+- [dark-mode-toggle](https://github.com/GoogleChromeLabs/dark-mode-toggle) <img align="bottom" height="13" src="https://img.shields.io/github/stars/GoogleChromeLabs/dark-mode-toggle.svg?label=" /> A custom element that allows you to easily put a Dark Mode 🌒 toggle or switch on your site
+- [Darkmode.js](https://github.com/sandoche/Darkmode.js) <img align="bottom" height="13" src="https://img.shields.io/github/stars/sandoche/Darkmode.js.svg?label=" /> Add a dark-mode / night-mode to your website in a few seconds
+- [darken](https://github.com/ColinEspinas/darken) <img align="bottom" height="13" src="https://img.shields.io/github/stars/ColinEspinas/darken.svg?label=" /> Dark mode made easy
+- [use-dark-mode](https://github.com/donavon/use-dark-mode) <img align="bottom" height="13" src="https://img.shields.io/github/stars/donavon/use-dark-mode.svg?label=" /> A custom React Hook to help you implement a "dark mode" component.
+- [Dark Mode Switch](https://github.com/coliff/dark-mode-switch) <img align="bottom" height="13" src="https://img.shields.io/github/stars/coliff/dark-mode-switch.svg?label=" /> Add a dark-mode theme toggle with a Bootstrap Custom Switch
 
 ## Contributors
 
