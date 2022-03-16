@@ -1,6 +1,6 @@
 {
   "name": "@wcj/dark-mode",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Web Component that toggles dark mode 🌒",
   "main": "./main.js",
   "browser": "./dist/dark-mode.min.js",
