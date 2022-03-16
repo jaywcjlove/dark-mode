@@ -106,7 +106,6 @@ class DarkMode extends HTMLElement {
     if (name === 'mode' && oldValue !== newValue && [LIGHT, DARK].includes(newValue)) {
       const rememberedValue = localStorage.getItem(LOCAL_NANE);
       if (this.mode === rememberedValue) {
-        console.log('rememberedValue:', rememberedValue)
         this.mode = newValue;
         this._changeContent();
         this._changeThemeTag();
@@ -116,10 +115,6 @@ class DarkMode extends HTMLElement {
       }
     } else if ((name === LIGHT || name === DARK) && oldValue !== newValue) {
       this._changeContent();
-    }
-    if (name === 'permanent') {
-
-      console.log('>>>', this.permanent)
     }
     if (name === 'permanent' && typeof this.permanent === 'boolean') {
       this.permanent ? localStorage.setItem(LOCAL_NANE, this.mode) : localStorage.removeItem(LOCAL_NANE);
@@ -178,10 +173,9 @@ class DarkMode extends HTMLElement {
       doc.head.appendChild(initstyle);
     }
 
-    var customStyle = this.getAttribute('style');
     var style = doc.createElement('style');
     style.textContent = `
-    .wrapper { cursor: pointer; user-select: none; position: relative; ${customStyle ? customStyle : ''} }
+    .wrapper { cursor: pointer; user-select: none; position: relative; }
     .wrapper > span + span { margin-left: .4rem; }
     `;
     shadow.appendChild(style);
