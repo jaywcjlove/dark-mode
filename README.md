@@ -78,6 +78,10 @@ const darkMode = document.querySelector('dark-mode');
 darkMode.mode = 'dark';
 // Set the mode to light
 darkMode.mode = 'light';
+// Set the mode to dark
+document.documentElement.setAttribute('data-color-mode', 'dark');
+// Set the mode to light
+document.documentElement.setAttribute('data-color-mode', 'light');
 
 // Set the light label to "off"
 darkMode.light = 'off';

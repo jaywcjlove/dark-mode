@@ -38,16 +38,16 @@
     }
     document.body.appendChild(button);
     document.addEventListener('colorschemechange', (e) => {
-      // console.log(`colorschemechange: Color scheme changed to "${e.detail.colorScheme}" or .`);
+      console.log(`colorschemechange: Color scheme changed to "${e.detail.colorScheme}" or .`);
       button.textContent = toggle.mode === 'dark' ? 'Change Theme 🌞' : 'Change Theme 🌒';
     });
     document.addEventListener('permanentcolorscheme', (e) => {
-      // console.log(`~permanentcolorscheme: Color scheme changed to "${e.detail.colorScheme}" or .`);
+      console.log(`~permanentcolorscheme: Color scheme changed to "${e.detail.colorScheme}" or .`);
     });
     const removePermanent = () => document.querySelectorAll('dark-mode').forEach((item) => item.removeAttribute('permanent'));
   </script>
   <button onclick="toggle.light = '明(Light)主题';toggle.dark = '暗(Dark)主题'">Change Label</button>
-  <button onclick="removePermanent();">Change permanent <span id="permanent">false</span></button>
+  <button onclick="removePermanent();">Change permanent</button>
   <br />
   <br />
   <dark-mode permanent></dark-mode>
