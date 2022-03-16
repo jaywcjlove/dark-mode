@@ -69,34 +69,6 @@ document.addEventListener('colorschemechange', (e) => {
 });
 ```
 
-## Properties
-
-Properties can be set directly on the custom element at creation time, or dynamically via JavaScript.
-
-```typescript
-export type ColorScheme = 'light' | 'dark';
-export class DarkMode extends HTMLElement {
-  mode?: ColorScheme;
-  /**
-   * Defaults to not remember the last choice.
-   * If present remembers the last selected mode (`dark` or `light`),
-   * which allows the user to permanently override their usual preferred color scheme.
-   */
-  permanent?: boolean;
-  /**
-   * Any string value that represents the label for the "dark" mode.
-   */
-  dark?: string;
-  /**
-   * Any string value that represents the label for the "light" mode.
-   */
-  light?: string;
-  style?: React.CSSProperties;
-}
-```
-
-## Complete Example
-
 Interacting with the custom element:
 
 ```js
@@ -137,6 +109,32 @@ Reacting on "remember the last selected mode" functionality changes:
 document.addEventListener('permanentcolorscheme', (e) => {
   console.log(`${e.detail.permanent ? 'R' : 'Not r'}emembering the last selected mode.`);
 });
+```
+
+## Properties
+
+Properties can be set directly on the custom element at creation time, or dynamically via JavaScript.
+
+```typescript
+export type ColorScheme = 'light' | 'dark';
+export class DarkMode extends HTMLElement {
+  mode?: ColorScheme;
+  /**
+   * Defaults to not remember the last choice.
+   * If present remembers the last selected mode (`dark` or `light`),
+   * which allows the user to permanently override their usual preferred color scheme.
+   */
+  permanent?: boolean;
+  /**
+   * Any string value that represents the label for the "dark" mode.
+   */
+  dark?: string;
+  /**
+   * Any string value that represents the label for the "light" mode.
+   */
+  light?: string;
+  style?: React.CSSProperties;
+}
 ```
 
 ## Events
