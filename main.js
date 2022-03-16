@@ -33,13 +33,13 @@ class DarkMode extends HTMLElement {
     }
     
     const observer = new MutationObserver((mutationsList, observer) => {
-      this.mode = document.body.dataset.colorMode;
+      this.mode = doc.documentElement.dataset.colorMode;
       this._changeContent();
       this._dispatchEvent(COLOR_SCHEME_CHANGE, { colorScheme: this.mode });
     });
-    // 以上述配置开始观察目标节点
-    observer.observe(doc.body, { attributes: true });
-    // 之后，可停止观察
+    // Start observing the target node with the above configuration
+    observer.observe(doc.documentElement, { attributes: true });
+    // After that, stop observing
     // observer.disconnect();
     this._initializeDOM();
   }
@@ -55,7 +55,7 @@ class DarkMode extends HTMLElement {
     }
   }
   _changeThemeTag() {
-    doc.body.setAttribute('data-color-mode', this.mode);
+    doc.documentElement.setAttribute('data-color-mode', this.mode);
   }
   _changeContent() {
     this.icon.textContent = this.mode === 'light' ? '🌒' : '🌞';
@@ -79,7 +79,7 @@ class DarkMode extends HTMLElement {
     this._changeContent();
 
     const textContent = `
-[data-color-mode*='dark'] {
+[data-color-mode*='dark'], [data-color-mode*='dark'] body {
   color-scheme: dark;
   --color-thme-bg: #0d1117;
   --color-thme-text: #c9d1d9;
@@ -87,7 +87,7 @@ class DarkMode extends HTMLElement {
   color: var(--color-thme-text);
 }
 
-[data-color-mode*='light'] {
+[data-color-mode*='light'], [data-color-mode*='light'] body {
   color-scheme: light;
   --color-thme-bg: #fff;
   --color-thme-text: #24292f;
