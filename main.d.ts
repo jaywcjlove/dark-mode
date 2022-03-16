@@ -50,7 +50,7 @@ declare global {
   }
   namespace JSX {
     interface IntrinsicElements {
-      'dark-mode': DarkMode | {
+      'dark-mode': Partial<DarkMode> | {
         style?: Partial<CSSStyleDeclaration>;
       };
     }
