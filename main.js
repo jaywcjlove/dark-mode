@@ -82,7 +82,7 @@ class DarkMode extends HTMLElement {
 [data-color-mode*='dark'] {
   color-scheme: dark;
   --color-thme-bg: #0d1117;
-  --color-thme-text: #fff;
+  --color-thme-text: #c9d1d9;
   background-color: var(--color-thme-bg);
   color: var(--color-thme-text);
 }
@@ -90,7 +90,7 @@ class DarkMode extends HTMLElement {
 [data-color-mode*='light'] {
   color-scheme: light;
   --color-thme-bg: #fff;
-  --color-thme-text: #282c34;
+  --color-thme-text: #24292f;
   background-color: var(--color-thme-bg);
   color: var(--color-thme-text);
 }`;
