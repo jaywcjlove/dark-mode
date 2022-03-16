@@ -15,10 +15,9 @@ declare global {
   interface GlobalEventHandlersEventMap {
     'colorschemechange': ColorSchemeChangeEvent;
   }
-}
-
-declare namespace JSX {
-  interface IntrinsicElements {
-    'dark-mode': DarkMode;
+  namespace JSX {
+    interface IntrinsicElements {
+      'dark-mode': DarkMode;
+    }
   }
 }
