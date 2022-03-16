@@ -1,7 +1,7 @@
-
 export type ColorScheme = 'light' | 'dark';
 export type ColorSchemeChangeEvent = CustomEvent<{ colorScheme: ColorScheme }>;
 export type PermanentColorSchemeEvent = CustomEvent<{ colorScheme: ColorScheme, permanent: boolean }>;
+
 export class DarkMode extends HTMLElement {
   mode?: ColorScheme;
   /**
@@ -18,7 +18,6 @@ export class DarkMode extends HTMLElement {
    * Any string value that represents the label for the "light" mode.
    */
   light?: string;
-  style?: React.CSSProperties;
 }
 
 declare global {
@@ -51,7 +50,9 @@ declare global {
   }
   namespace JSX {
     interface IntrinsicElements {
-      'dark-mode': DarkMode;
+      'dark-mode': DarkMode | {
+        style?: Partial<CSSStyleDeclaration>;
+      };
     }
   }
 }
