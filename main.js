@@ -99,6 +99,7 @@ class DarkMode extends HTMLElement {
     observer.observe(doc.documentElement, { attributes: true });
     // After that, stop observing
     // observer.disconnect();
+    this._dispatchEvent(COLOR_SCHEME_CHANGE, { colorScheme: this.mode });
 
     this._changeContent();
   }
