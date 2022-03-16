@@ -29,8 +29,8 @@
     button.textContent = 'Change Theme';
     button.style = 'line-height: 16px';
     button.onclick = () => {
-      const theme = document.body.dataset.colorMode;
-      document.body.setAttribute('data-color-mode', theme === 'light' ? 'dark' : 'light');
+      const theme = document.documentElement.dataset.colorMode;
+      document.documentElement.setAttribute('data-color-mode', theme === 'light' ? 'dark' : 'light');
     }
     document.body.appendChild(button);
     document.addEventListener('colorschemechange', (e) => {
