@@ -49,6 +49,41 @@ function Demo() {
 }
 ```
 
+Toggle in JavaScript: 
+
+```js
+const toggle = document.querySelector('dark-mode');
+const button = document.createElement('button');
+button.textContent = 'Change Theme';
+button.onclick = () => {
+  const theme = document.body.dataset.colorMode;
+  // or => const theme = toggle.mode
+  document.body.setAttribute('data-color-mode', theme === 'light' ? 'dark' : 'light');
+}
+document.body.appendChild(button);
+// Listen for toggle changes
+// and toggle the `dark` class accordingly.
+document.addEventListener('colorschemechange', (e) => {
+  console.log(`Color scheme changed to "${e.detail.colorScheme}" or "${toggle.mode}".`);
+  button.textContent = toggle.mode === 'dark' ? 'Change Theme 🌞' : 'Change Theme 🌒';
+});
+```
+
+## Properties
+
+Properties can be set directly on the custom element at creation time, or dynamically via JavaScript.
+
+```typescript
+export type ColorScheme = 'light' | 'dark';
+export type ColorSchemeChangeEvent = CustomEvent<{ colorScheme: ColorScheme }>;
+export class DarkMode extends HTMLElement {
+  mode?: ColorScheme;
+  dark?: string;
+  light?: string;
+  style?: React.CSSProperties;
+}
+```
+
 ## Contributors
 
 As always, thanks to our amazing contributors!

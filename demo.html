@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>dark-mode</title>
-  <meta description="A custom element that allows you to easily put a Dark Mode 🌒 toggle." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌓</text></svg>" type="image/x-icon">
+  <meta description="🌓 Add dark mode/night mode custom elements to your website." />
   <script src="./main.js" defer></script>
   <style>
     a {
@@ -14,14 +15,28 @@
   </style>
 </head>
 <body>
-  <dark-mode onclick="console.log('Hello')"></dark-mode>
+  <h1>Hi there!</h1>
+  <div>I'm your cool new webpage! Use the toggle in the <dark-mode></dark-mode> button to switch my theme.</div>
+  <dark-mode onclick="console.log('Hello')" mode="light"></dark-mode>
   <dark-mode onchange="handleDarkMode" dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"></dark-mode>
+  <br /><br />
+  Document: <a href="https://github.com/jaywcjlove/dark-mode.git">@jaywcjlove/dark-mode</a>
+  <br />
+  <br />
   <script>
+    const toggle = document.querySelector('dark-mode');
+    const button = document.createElement('button');
+    button.textContent = 'Change Theme';
+    button.style = 'line-height: 16px';
+    button.onclick = () => {
+      const theme = document.body.dataset.colorMode;
+      document.body.setAttribute('data-color-mode', theme === 'light' ? 'dark' : 'light');
+    }
+    document.body.appendChild(button);
     document.addEventListener('colorschemechange', (e) => {
-      console.log(`Color scheme changed to "${e.detail.colorScheme}".`);
+      console.log(`Color scheme changed to "${e.detail.colorScheme}" or "${toggle.mode}".`);
+      button.textContent = toggle.mode === 'dark' ? 'Change Theme 🌞' : 'Change Theme 🌒';
     });
   </script>
-  <br /><br />
-  <a href="https://github.com/jaywcjlove/dark-mode.git">@jaywcjlove/dark-mode</a>
 </body>
 </html>
