@@ -56,9 +56,9 @@ const toggle = document.querySelector('dark-mode');
 const button = document.createElement('button');
 button.textContent = 'Change Theme';
 button.onclick = () => {
-  const theme = document.body.dataset.colorMode;
+  const theme = document.documentElement.dataset.colorMode;
   // or => const theme = toggle.mode
-  document.body.setAttribute('data-color-mode', theme === 'light' ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-color-mode', theme === 'light' ? 'dark' : 'light');
 }
 document.body.appendChild(button);
 // Listen for toggle changes
@@ -83,6 +83,10 @@ export class DarkMode extends HTMLElement {
   style?: React.CSSProperties;
 }
 ```
+
+## Events
+
+- `colorschemechange`: Fired when the color scheme gets changed.
 
 ## Contributors
 
