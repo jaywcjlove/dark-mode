@@ -1,8 +1,8 @@
 /**
  * @package @wcj/dark-mode
  * Web Component that toggles dark mode 🌒
- * https://github.com/jaywcjlove/dark-mode.git
- * website: 
+ * Github: https://github.com/jaywcjlove/dark-mode.git
+ * Website: https://jaywcjlove.github.io/dark-mode
  * 
  * Licensed under the MIT license.
  * @license Copyright © 2022. Licensed under the MIT License
