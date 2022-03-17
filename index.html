@@ -75,7 +75,7 @@
 [![npm version](https://img.shields.io/npm/v/@wcj/dark-mode.svg)](https://www.npmjs.com/package/@wcj/dark-mode)
 [![Open in unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@wcj/dark-mode/file/README.md)
 
-A custom element that allows you to easily put a Dark Mode 🌒 toggle. so you can initially adhere to your users' preferences according to [`prefers-color-scheme`](https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme), but also allow them to (optionally permanently) override their system setting for just your site.
+A custom element that allows you to easily put a Dark Mode 🌒 toggle. so you can initially adhere to your users&#39; preferences according to [`prefers-color-scheme`](https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme), but also allow them to (optionally permanently) override their system setting for just your site.
 
 ## Installation
 
@@ -85,35 +85,35 @@ Install from npm:
 npm install --save @wcj/dark-mode
 ```
 
-Or, alternatively, use a `<script defer>` tag (served from unpkg's CDN):
+Or, alternatively, use a `&lt;script defer&gt;` tag (served from unpkg&#39;s CDN):
 
 CDN: [UNPKG](https://unpkg.com/@wcj/dark-mode/dist/) | [jsDelivr](https://cdn.jsdelivr.net/npm/@wcj/dark-mode/) | [Githack](https://raw.githack.com/jaywcjlove/dark-mode/gh-pages/dark-mode.min.js) | [Statically](https://cdn.statically.io/gh/jaywcjlove/dark-mode/gh-pages/dark-mode.min.js)
 
 ```html
-<script src="https://unpkg.com/@wcj/dark-mode"></script>
+&lt;script src=&#34;https://unpkg.com/@wcj/dark-mode&#34;&gt;&lt;/script&gt;
 ```
 
 ## Usage
 
-There are two ways how you can use `<dark-mode>`:
+There are two ways how you can use `&lt;dark-mode&gt;`:
 
 ```html
-<dark-mode></dark-mode>
-<dark-mode light="Dart" dark="Light"></dark-mode>
-<dark-mode dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"></dark-mode>
+&lt;dark-mode&gt;&lt;/dark-mode&gt;
+&lt;dark-mode light=&#34;Dart&#34; dark=&#34;Light&#34;&gt;&lt;/dark-mode&gt;
+&lt;dark-mode dark=&#34;Dark&#34; light=&#34;Light&#34; style=&#34;border: 1px solid red; font-size: 12px;&#34;&gt;&lt;/dark-mode&gt;
 ```
 
 Use in [React](https://github.com/facebook/react):
 
 ```jsx
-import React from 'react';
-import '@wcj/dark-mode';
+import React from &#39;react&#39;;
+import &#39;@wcj/dark-mode&#39;;
 
 function Demo() {
   return (
-    <div>
-      <dark-mode light="Dart" dark="Light"></dark-mode>
-    </div>
+    &lt;div&gt;
+      &lt;dark-mode light=&#34;Dart&#34; dark=&#34;Light&#34;&gt;&lt;/dark-mode&gt;
+    &lt;/div&gt;
   );
 }
 ```
@@ -121,66 +121,66 @@ function Demo() {
 Toggle in JavaScript: 
 
 ```js
-const toggle = document.querySelector('dark-mode');
-const button = document.createElement('button');
-button.textContent = 'Change Theme';
-button.onclick = () => {
+const toggle = document.querySelector(&#39;dark-mode&#39;);
+const button = document.createElement(&#39;button&#39;);
+button.textContent = &#39;Change Theme&#39;;
+button.onclick = () =&gt; {
   const theme = document.documentElement.dataset.colorMode;
-  // or => const theme = toggle.mode
-  document.documentElement.setAttribute('data-color-mode', theme === 'light' ? 'dark' : 'light');
+  // or =&gt; const theme = toggle.mode
+  document.documentElement.setAttribute(&#39;data-color-mode&#39;, theme === &#39;light&#39; ? &#39;dark&#39; : &#39;light&#39;);
 }
 document.body.appendChild(button);
 // Listen for toggle changes
 // and toggle the `dark` class accordingly.
-document.addEventListener('colorschemechange', (e) => {
-  console.log(`Color scheme changed to "${e.detail.colorScheme}" or "${toggle.mode}".`);
-  button.textContent = toggle.mode === 'dark' ? 'Change Theme 🌞' : 'Change Theme 🌒';
+document.addEventListener(&#39;colorschemechange&#39;, (e) =&gt; {
+  console.log(`Color scheme changed to &#34;${e.detail.colorScheme}&#34; or &#34;${toggle.mode}&#34;.`);
+  button.textContent = toggle.mode === &#39;dark&#39; ? &#39;Change Theme 🌞&#39; : &#39;Change Theme 🌒&#39;;
 });
 ```
 
 Interacting with the custom element:
 
 ```js
-const darkMode = document.querySelector('dark-mode');
+const darkMode = document.querySelector(&#39;dark-mode&#39;);
 
 // Set the mode to dark
-darkMode.mode = 'dark';
+darkMode.mode = &#39;dark&#39;;
 // Set the mode to light
-darkMode.mode = 'light';
+darkMode.mode = &#39;light&#39;;
 // Set the mode to dark
-document.documentElement.setAttribute('data-color-mode', 'dark');
+document.documentElement.setAttribute(&#39;data-color-mode&#39;, &#39;dark&#39;);
 // Set the mode to light
-document.documentElement.setAttribute('data-color-mode', 'light');
+document.documentElement.setAttribute(&#39;data-color-mode&#39;, &#39;light&#39;);
 
-// Set the light label to "off"
-darkMode.light = 'off';
-// Set the dark label to "on"
-darkMode.dark = 'on';
+// Set the light label to &#34;off&#34;
+darkMode.light = &#39;off&#39;;
+// Set the dark label to &#34;on&#34;
+darkMode.dark = &#39;on&#39;;
 
-// Set a "remember the last selected mode" label
-darkMode.permanent = 'on';
+// Set a &#34;remember the last selected mode&#34; label
+darkMode.permanent = &#39;on&#39;;
 
-// Remember the user's last color scheme choice
-darkModeToggle.setAttribute('permanent', false);
-// Forget the user's last color scheme choice
-darkModeToggle.removeAttribute('permanent');
+// Remember the user&#39;s last color scheme choice
+darkModeToggle.setAttribute(&#39;permanent&#39;, false);
+// Forget the user&#39;s last color scheme choice
+darkModeToggle.removeAttribute(&#39;permanent&#39;);
 ```
 
 Reacting on color scheme changes:
 
 ```js
 /* On the page */
-document.addEventListener('colorschemechange', (e) => {
+document.addEventListener(&#39;colorschemechange&#39;, (e) =&gt; {
   console.log(`Color scheme changed to ${e.detail.colorScheme}.`);
 });
 ```
 
-Reacting on "remember the last selected mode" functionality changes:
+Reacting on &#34;remember the last selected mode&#34; functionality changes:
 
 ```js
 /* On the page */
-document.addEventListener('permanentcolorscheme', (e) => {
-  console.log(`${e.detail.permanent ? 'R' : 'Not r'}emembering the last selected mode.`);
+document.addEventListener(&#39;permanentcolorscheme&#39;, (e) =&gt; {
+  console.log(`${e.detail.permanent ? &#39;R&#39; : &#39;Not r&#39;}emembering the last selected mode.`);
 });
 ```
 
@@ -189,7 +189,7 @@ document.addEventListener('permanentcolorscheme', (e) => {
 Properties can be set directly on the custom element at creation time, or dynamically via JavaScript.
 
 ```typescript
-export type ColorScheme = 'light' | 'dark';
+export type ColorScheme = &#39;light&#39; | &#39;dark&#39;;
 export class DarkMode extends HTMLElement {
   mode?: ColorScheme;
   /**
@@ -199,11 +199,11 @@ export class DarkMode extends HTMLElement {
    */
   permanent?: boolean;
   /**
-   * Any string value that represents the label for the "dark" mode.
+   * Any string value that represents the label for the &#34;dark&#34; mode.
    */
   dark?: string;
   /**
-   * Any string value that represents the label for the "light" mode.
+   * Any string value that represents the label for the &#34;light&#34; mode.
    */
   light?: string;
   style?: React.CSSProperties;
@@ -217,19 +217,19 @@ export class DarkMode extends HTMLElement {
 
 ## Alternatives
 
-- [dark-mode-toggle](https://github.com/GoogleChromeLabs/dark-mode-toggle) <img align="bottom" height="13" src="https://img.shields.io/github/stars/GoogleChromeLabs/dark-mode-toggle.svg?label=" /> A custom element that allows you to easily put a Dark Mode 🌒 toggle or switch on your site
-- [Darkmode.js](https://github.com/sandoche/Darkmode.js) <img align="bottom" height="13" src="https://img.shields.io/github/stars/sandoche/Darkmode.js.svg?label=" /> Add a dark-mode / night-mode to your website in a few seconds
-- [darken](https://github.com/ColinEspinas/darken) <img align="bottom" height="13" src="https://img.shields.io/github/stars/ColinEspinas/darken.svg?label=" /> Dark mode made easy
-- [use-dark-mode](https://github.com/donavon/use-dark-mode) <img align="bottom" height="13" src="https://img.shields.io/github/stars/donavon/use-dark-mode.svg?label=" /> A custom React Hook to help you implement a "dark mode" component.
-- [Dark Mode Switch](https://github.com/coliff/dark-mode-switch) <img align="bottom" height="13" src="https://img.shields.io/github/stars/coliff/dark-mode-switch.svg?label=" /> Add a dark-mode theme toggle with a Bootstrap Custom Switch
+- [dark-mode-toggle](https://github.com/GoogleChromeLabs/dark-mode-toggle) &lt;img align=&#34;bottom&#34; height=&#34;13&#34; src=&#34;https://img.shields.io/github/stars/GoogleChromeLabs/dark-mode-toggle.svg?label=&#34; /&gt; A custom element that allows you to easily put a Dark Mode 🌒 toggle or switch on your site
+- [Darkmode.js](https://github.com/sandoche/Darkmode.js) &lt;img align=&#34;bottom&#34; height=&#34;13&#34; src=&#34;https://img.shields.io/github/stars/sandoche/Darkmode.js.svg?label=&#34; /&gt; Add a dark-mode / night-mode to your website in a few seconds
+- [darken](https://github.com/ColinEspinas/darken) &lt;img align=&#34;bottom&#34; height=&#34;13&#34; src=&#34;https://img.shields.io/github/stars/ColinEspinas/darken.svg?label=&#34; /&gt; Dark mode made easy
+- [use-dark-mode](https://github.com/donavon/use-dark-mode) &lt;img align=&#34;bottom&#34; height=&#34;13&#34; src=&#34;https://img.shields.io/github/stars/donavon/use-dark-mode.svg?label=&#34; /&gt; A custom React Hook to help you implement a &#34;dark mode&#34; component.
+- [Dark Mode Switch](https://github.com/coliff/dark-mode-switch) &lt;img align=&#34;bottom&#34; height=&#34;13&#34; src=&#34;https://img.shields.io/github/stars/coliff/dark-mode-switch.svg?label=&#34; /&gt; Add a dark-mode theme toggle with a Bootstrap Custom Switch
 
 ## Contributors
 
 As always, thanks to our amazing contributors!
 
-<a href="https://github.com/jaywcjlove/dark-mode/graphs/contributors">
-  <img src="https://jaywcjlove.github.io/dark-mode/CONTRIBUTORS.svg" />
-</a>
+&lt;a href=&#34;https://github.com/jaywcjlove/dark-mode/graphs/contributors&#34;&gt;
+  &lt;img src=&#34;https://jaywcjlove.github.io/dark-mode/CONTRIBUTORS.svg&#34; /&gt;
+&lt;/a&gt;
 
 Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
 
