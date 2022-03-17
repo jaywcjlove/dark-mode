@@ -133,7 +133,7 @@ document.body.appendChild(button);
 // Listen for toggle changes
 // and toggle the \`dark\` class accordingly.
 document.addEventListener('colorschemechange', (e) => {
-  console.log(\`Color scheme changed to "${e.detail.colorScheme}" or "${toggle.mode}".\`);
+  console.log(\`Color scheme changed to "$\{e.detail.colorScheme}" or "$\{toggle.mode}".\`);
   button.textContent = toggle.mode === 'dark' ? 'Change Theme 🌞' : 'Change Theme 🌒';
 });
 \`\`\`
@@ -171,7 +171,7 @@ Reacting on color scheme changes:
 \`\`\`js
 /* On the page */
 document.addEventListener('colorschemechange', (e) => {
-  console.log(\`Color scheme changed to ${e.detail.colorScheme}.\`);
+  console.log(\`Color scheme changed to $\{e.detail.colorScheme}.\`);
 });
 \`\`\`
 
@@ -180,7 +180,7 @@ Reacting on "remember the last selected mode" functionality changes:
 \`\`\`js
 /* On the page */
 document.addEventListener('permanentcolorscheme', (e) => {
-  console.log(\`${e.detail.permanent ? 'R' : 'Not r'}emembering the last selected mode.\`);
+  console.log(\`$\{e.detail.permanent ? 'R' : 'Not r'}emembering the last selected mode.\`);
 });
 \`\`\`
 
