@@ -3,6 +3,7 @@ dark-mode
 
 [![CI](https://github.com/jaywcjlove/dark-mode/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/dark-mode/actions/workflows/ci.yml)
 [![jsDelivr CDN](https://data.jsdelivr.com/v1/package/npm/@wcj/dark-mode/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@wcj/dark-mode)
+[![NPM Downloads](https://img.shields.io/npm/dm/@wcj/dark-mode.svg?style=flat)](https://www.npmjs.com/package/@wcj/dark-mode)
 [![npm version](https://img.shields.io/npm/v/@wcj/dark-mode.svg)](https://www.npmjs.com/package/@wcj/dark-mode)
 [![Open in unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@wcj/dark-mode/file/README.md)
 
