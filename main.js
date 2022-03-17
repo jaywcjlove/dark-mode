@@ -1,3 +1,13 @@
+/**
+ * @package @wcj/dark-mode
+ * Web Component that toggles dark mode 🌒
+ * https://github.com/jaywcjlove/dark-mode.git
+ * website: 
+ * 
+ * Licensed under the MIT license.
+ * @license Copyright © 2022. Licensed under the MIT License
+ * @author kenny wong <wowohoo@qq.com>
+ */
 const doc = document;
 const LOCAL_NANE = '_dark_mode_theme_'
 const PERMANENT = 'permanent';
