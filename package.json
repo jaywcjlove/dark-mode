@@ -2,6 +2,9 @@
   "name": "@wcj/dark-mode",
   "version": "1.0.10",
   "description": "Web Component that toggles dark mode 🌒",
+  "homepage": "https://jaywcjlove.github.io/dark-mode",
+  "author": "jaywcjlove",
+  "license": "MIT",
   "main": "./main.js",
   "browser": "./dist/dark-mode.min.js",
   "module": "./dist/dark-mode.min.js",
@@ -12,8 +15,6 @@
     "clean": "shx rm -rf ./dist && mkdir dist",
     "build": "npm run clean && npx terser ./main.js --toplevel --mangle-props regex=\\\"^_\\\" --comments /@license/ --ecma=8 -o ./dist/dark-mode.min.js"
   },
-  "author": "jaywcjlove",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaywcjlove/dark-mode.git"
