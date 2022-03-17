@@ -67,61 +67,60 @@
   <script src="https://unpkg.com/@wcj/markdown-to-html"></script>
   <script type="text/javascript">
     ;(() => {
-      const str = `## \`<dark-mode />\`
+      const str = `dark-mode
+===
 
 [![CI](https://github.com/jaywcjlove/dark-mode/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/dark-mode/actions/workflows/ci.yml)
 [![jsDelivr CDN](https://data.jsdelivr.com/v1/package/npm/@wcj/dark-mode/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@wcj/dark-mode)
 [![npm version](https://img.shields.io/npm/v/@wcj/dark-mode.svg)](https://www.npmjs.com/package/@wcj/dark-mode)
 [![Open in unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@wcj/dark-mode/file/README.md)
 
-A custom element that allows you to easily put a Dark Mode 🌒 toggle. so you can initially adhere to your users' preferences according to [\`prefers-color-scheme\`](https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme), but also allow them to (optionally permanently) override their system setting for just your site.
+A custom element that allows you to easily put a Dark Mode 🌒 toggle. so you can initially adhere to your users' preferences according to [`prefers-color-scheme`](https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme), but also allow them to (optionally permanently) override their system setting for just your site.
 
 ## Installation
 
-
 Install from npm:
 
-\`\`\`bash
+```bash
 npm install --save @wcj/dark-mode
-\`\`\`
+```
 
-Or, alternatively, use a \`<script defer>\` tag (served from unpkg's CDN):
+Or, alternatively, use a `<script defer>` tag (served from unpkg's CDN):
 
 CDN: [UNPKG](https://unpkg.com/@wcj/dark-mode/dist/) | [jsDelivr](https://cdn.jsdelivr.net/npm/@wcj/dark-mode/) | [Githack](https://raw.githack.com/jaywcjlove/dark-mode/gh-pages/dark-mode.min.js) | [Statically](https://cdn.statically.io/gh/jaywcjlove/dark-mode/gh-pages/dark-mode.min.js)
 
-\`\`\`html
-<script src="https://unpkg.com/@wcj/dark-mode"><\/script>
-\`\`\`
-
+```html
+<script src="https://unpkg.com/@wcj/dark-mode"></script>
+```
 
 ## Usage
 
-There are two ways how you can use \`<dark-mode>\`:
+There are two ways how you can use `<dark-mode>`:
 
-\`\`\`html
-<dark-mode><\/dark-mode>
-<dark-mode light="Dart" dark="Light"><\/dark-mode>
-<dark-mode dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"><\/dark-mode>
-\`\`\`
+```html
+<dark-mode></dark-mode>
+<dark-mode light="Dart" dark="Light"></dark-mode>
+<dark-mode dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"></dark-mode>
+```
 
 Use in [React](https://github.com/facebook/react):
 
-\`\`\`jsx
+```jsx
 import React from 'react';
 import '@wcj/dark-mode';
 
 function Demo() {
   return (
     <div>
-      <dark-mode light="Dart" dark="Light"><\/dark-mode>
-    <\/div>
+      <dark-mode light="Dart" dark="Light"></dark-mode>
+    </div>
   );
 }
-\`\`\`
+```
 
 Toggle in JavaScript: 
 
-\`\`\`js
+```js
 const toggle = document.querySelector('dark-mode');
 const button = document.createElement('button');
 button.textContent = 'Change Theme';
@@ -132,22 +131,26 @@ button.onclick = () => {
 }
 document.body.appendChild(button);
 // Listen for toggle changes
-// and toggle the \`dark\` class accordingly.
+// and toggle the `dark` class accordingly.
 document.addEventListener('colorschemechange', (e) => {
-  console.log(\`Color scheme changed to "$\{e.detail.colorScheme}" or "$\{toggle.mode}".\`);
+  console.log(`Color scheme changed to "${e.detail.colorScheme}" or "${toggle.mode}".`);
   button.textContent = toggle.mode === 'dark' ? 'Change Theme 🌞' : 'Change Theme 🌒';
 });
-\`\`\`
+```
 
 Interacting with the custom element:
 
-\`\`\`js
+```js
 const darkMode = document.querySelector('dark-mode');
 
 // Set the mode to dark
 darkMode.mode = 'dark';
 // Set the mode to light
 darkMode.mode = 'light';
+// Set the mode to dark
+document.documentElement.setAttribute('data-color-mode', 'dark');
+// Set the mode to light
+document.documentElement.setAttribute('data-color-mode', 'light');
 
 // Set the light label to "off"
 darkMode.light = 'off';
@@ -161,38 +164,37 @@ darkMode.permanent = 'on';
 darkModeToggle.setAttribute('permanent', false);
 // Forget the user's last color scheme choice
 darkModeToggle.removeAttribute('permanent');
-\`\`\`
-
+```
 
 Reacting on color scheme changes:
 
-\`\`\`js
+```js
 /* On the page */
 document.addEventListener('colorschemechange', (e) => {
-  console.log(\`Color scheme changed to $\{e.detail.colorScheme}.\`);
+  console.log(`Color scheme changed to ${e.detail.colorScheme}.`);
 });
-\`\`\`
+```
 
 Reacting on "remember the last selected mode" functionality changes:
 
-\`\`\`js
+```js
 /* On the page */
 document.addEventListener('permanentcolorscheme', (e) => {
-  console.log(\`$\{e.detail.permanent ? 'R' : 'Not r'}emembering the last selected mode.\`);
+  console.log(`${e.detail.permanent ? 'R' : 'Not r'}emembering the last selected mode.`);
 });
-\`\`\`
+```
 
 ## Properties
 
 Properties can be set directly on the custom element at creation time, or dynamically via JavaScript.
 
-\`\`\`typescript
+```typescript
 export type ColorScheme = 'light' | 'dark';
 export class DarkMode extends HTMLElement {
   mode?: ColorScheme;
   /**
    * Defaults to not remember the last choice.
-   * If present remembers the last selected mode (\`dark\` or \`light\`),
+   * If present remembers the last selected mode (`dark` or `light`),
    * which allows the user to permanently override their usual preferred color scheme.
    */
   permanent?: boolean;
@@ -206,12 +208,12 @@ export class DarkMode extends HTMLElement {
   light?: string;
   style?: React.CSSProperties;
 }
-\`\`\`
+```
 
 ## Events
 
-- \`colorschemechange\`: Fired when the color scheme gets changed.
-- \`permanentcolorscheme\`: Fired when the color scheme should be permanently remembered or not.
+- `colorschemechange`: Fired when the color scheme gets changed.
+- `permanentcolorscheme`: Fired when the color scheme should be permanently remembered or not.
 
 ## Alternatives
 
