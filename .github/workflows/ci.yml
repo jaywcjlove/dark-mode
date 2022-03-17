@@ -15,9 +15,9 @@ jobs:
     
     - run: npm install
     - run: npm run build
-    # - run: cp -rp demo.html dist/index.html
-    # - run: cp -rp main.js dist/main.js
-    - name: action-ejs
+    - run: cp -rp main.js dist/main.js
+
+    - name: 🌐 Generate Documentation Website
       uses: jaywcjlove/action-ejs@main
       with:
         template-file: demo.html
