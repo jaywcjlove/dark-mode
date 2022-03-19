@@ -160,18 +160,18 @@ class DarkMode extends HTMLElement {
     const textContent = `
 [data-color-mode*='dark'], [data-color-mode*='dark'] body {
   color-scheme: dark;
-  --color-thme-bg: #0d1117;
-  --color-thme-text: #c9d1d9;
-  background-color: var(--color-thme-bg);
-  color: var(--color-thme-text);
+  --color-theme-bg: #0d1117;
+  --color-theme-text: #c9d1d9;
+  background-color: var(--color-theme-bg);
+  color: var(--color-theme-text);
 }
 
 [data-color-mode*='light'], [data-color-mode*='light'] body {
   color-scheme: light;
-  --color-thme-bg: #fff;
-  --color-thme-text: #24292f;
-  background-color: var(--color-thme-bg);
-  color: var(--color-thme-text);
+  --color-theme-bg: #fff;
+  --color-theme-text: #24292f;
+  background-color: var(--color-theme-bg);
+  color: var(--color-theme-text);
 }`;
 
     const STYLE_ID = '_dark_mode_style_';
