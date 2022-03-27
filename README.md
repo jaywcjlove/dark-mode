@@ -31,7 +31,7 @@ There are two ways how you can use `<dark-mode>`:
 
 ```html
 <dark-mode></dark-mode>
-<dark-mode light="DarK" dark="Light"></dark-mode>
+<dark-mode light="Dark" dark="Light"></dark-mode>
 <dark-mode dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"></dark-mode>
 ```
 
@@ -44,7 +44,7 @@ import '@wcj/dark-mode';
 function Demo() {
   return (
     <div>
-      <dark-mode light="DarK" dark="Light"></dark-mode>
+      <dark-mode light="Dark" dark="Light"></dark-mode>
     </div>
   );
 }
