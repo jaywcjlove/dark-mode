@@ -64,6 +64,7 @@
     }
   </script>
   <br /><br />
+  <div id="markdown">loading...</div>
   <link rel="stylesheet" href="https://unpkg.com/@wcj/markdown-to-html/dist/marked.css">
   <script src="https://unpkg.com/@wcj/markdown-to-html"></script>
   <script type="text/javascript">
@@ -239,7 +240,7 @@ Made with [github-action-contributors](https://github.com/jaywcjlove/github-acti
 
 Licensed under the [MIT License](https://opensource.org/licenses/MIT).
 `;
-      const div = document.createElement('div');
+      const div = document.getElementById('markdown');
       div.className = 'markdown-body';
       div.style = 'padding: 15px 0 25px 0;';
       div.innerHTML = markdown.default(str)
