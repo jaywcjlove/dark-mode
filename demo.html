@@ -64,12 +64,13 @@
     }
   </script>
   <br /><br />
+  <div id="markdown">loading...</div>
   <link rel="stylesheet" href="https://unpkg.com/@wcj/markdown-to-html/dist/marked.css">
   <script src="https://unpkg.com/@wcj/markdown-to-html"></script>
   <script type="text/javascript">
     ;(() => {
       const str = `<%- markdownString.replace(/\`/g, '\\\`').replace(/<\//g, '<\\/').replace(/\$\{/g, '$\\{') %>`;
-      const div = document.createElement('div');
+      const div = document.getElementById('markdown');
       div.className = 'markdown-body';
       div.style = 'padding: 15px 0 25px 0;';
       div.innerHTML = markdown.default(str)
