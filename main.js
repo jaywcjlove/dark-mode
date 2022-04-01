@@ -84,7 +84,7 @@ class DarkMode extends HTMLElement {
         this._changeThemeTag();
       }
     }
-    if (this.permanent && !hasNativePrefersColorScheme) {
+    if (!this.permanent && !hasNativePrefersColorScheme) {
       window.matchMedia('(prefers-color-scheme: light)').onchange = (event) => {
         this.mode = event.matches ? LIGHT : DARK;
         this._changeThemeTag();
