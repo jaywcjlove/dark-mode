@@ -44,7 +44,7 @@ import '@wcj/dark-mode';
 function Demo() {
   return (
     <div>
-      <dark-mode light="Dark" dark="Light"></dark-mode>
+      <dark-mode permanent light="Light" dark="Dark"></dark-mode>
     </div>
   );
 }
