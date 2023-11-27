@@ -1,6 +1,6 @@
 {
   "name": "@wcj/dark-mode",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Web Component that toggles dark mode 🌒",
   "homepage": "https://jaywcjlove.github.io/dark-mode",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
