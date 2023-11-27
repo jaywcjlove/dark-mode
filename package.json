@@ -3,6 +3,7 @@
   "version": "1.0.15",
   "description": "Web Component that toggles dark mode 🌒",
   "homepage": "https://jaywcjlove.github.io/dark-mode",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "author": "jaywcjlove",
   "license": "MIT",
   "main": "./main.js",
