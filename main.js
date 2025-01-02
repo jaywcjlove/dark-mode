@@ -155,9 +155,11 @@ class DarkMode extends HTMLElement {
     }
     shadow.appendChild(this.label);
     this.icon = doc.createElement('span');
+    this.icon.part = 'icon'; 
     this.label.appendChild(this.icon);
 
     this.text = doc.createElement('span');
+    this.text.part = 'text'; 
     this.label.appendChild(this.text);
 
     const textContent = `
