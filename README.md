@@ -117,6 +117,19 @@ document.addEventListener('permanentcolorscheme', (e) => {
 });
 ```
 
+## Hide Text and Icons
+
+You can use the following CSS selectors to hide the text and icon parts of the `dark-mode` component:
+
+```css
+dark-mode::part(text) {
+    display: none;
+}
+dark-mode::part(icon) {
+    display: none;
+}
+```
+
 ## Properties
 
 Properties can be set directly on the custom element at creation time, or dynamically via JavaScript.
