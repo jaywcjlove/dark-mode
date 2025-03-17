@@ -30,7 +30,7 @@
     "mode"
   ],
   "devDependencies": {
-    "shx": "^0.3.4",
+    "shx": "^0.4.0",
     "terser": "^5.10.0"
   }
 }
