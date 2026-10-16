@@ -9,7 +9,12 @@
   "main": "./main.js",
   "browser": "./dist/dark-mode.min.js",
   "module": "./dist/dark-mode.min.js",
-  "exports": "./dist/dark-mode.min.js",
+  "exports": {
+    ".": {
+      "types": "./main.d.ts",
+      "default": "./dist/dark-mode.min.js"
+    }
+  },
   "unpkg": "./dist/dark-mode.min.js",
   "types": "./main.d.ts",
   "scripts": {
